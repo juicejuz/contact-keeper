@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://<user>:<passwor>@<mongodb-server>",
+  "jwtSecret": "secret"
+}
