@@ -11,10 +11,9 @@ pipeline {
         git(url: 'https://github.com/juicejuz/contact-keeper', branch: 'master', changelog: true)
       }
     }
-    stage('test-2') {
+    stage('docker') {
       steps {
-        sh '''npm install
-node app.js'''
+        sh 'docker build -t dave-test --target prod .'
       }
     }
   }
