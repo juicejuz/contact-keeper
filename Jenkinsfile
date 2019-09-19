@@ -8,6 +8,8 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
+                sh 'npm config set http-proxy http://10.252.64.33:8080'
+                sh 'npm config set https-proxy http://10.252.64.33:8080'
                 sh 'npm install' 
             }
         }
