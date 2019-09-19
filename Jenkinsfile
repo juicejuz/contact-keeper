@@ -13,6 +13,7 @@ pipeline {
             steps {
                 sh 'npm config set http-proxy http://10.252.64.33:8080'
                 sh 'npm config set https-proxy http://10.252.64.33:8080'
+                sh 'cd client'
                 sh 'npm install' 
             }
         }
