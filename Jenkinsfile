@@ -1,20 +1,15 @@
 pipeline {
-  agent {
-    node {
-      label 'node'
+    agent {
+        docker {
+            image 'oavkdtv/centos-node' 
+            args '-p 3000:3000' 
+        }
     }
-
-  }
-  stages {
-    stage('test-1') {
-      steps {
-        git(url: 'https://github.com/juicejuz/contact-keeper', branch: 'master', changelog: true)
-      }
+    stages {
+        stage('Build') { 
+            steps {
+                sh 'npm install' 
+            }
+        }
     }
-    stage('docker') {
-      steps {
-        sh 'docker build -t dave-test --target prod .'
-      }
-    }
-  }
 }
